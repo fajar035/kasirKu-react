@@ -1,0 +1,16 @@
+.wrapper-products {
+  padding: 20px;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+  .wrapper-products {
+    width: 100%;
+  }
+}

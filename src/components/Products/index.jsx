@@ -1,9 +1,18 @@
-// import dataProducts from '../../utils/Data';
+import dataProducts from '../../utils/Data';
+import CardProduct from '../Cards/CardProduct';
+import './styles.css';
 
 function Products() {
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className="text-primary">Products</div>
+    <div className="wrapper-products">
+      {dataProducts.map((product, idx) => (
+        <CardProduct
+          key={idx}
+          img={product.picture}
+          name={product.name}
+          price={product.price}
+        />
+      ))}
     </div>
   );
 }

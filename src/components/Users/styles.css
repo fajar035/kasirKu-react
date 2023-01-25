@@ -1,0 +1,12 @@
+.wrapper-users {
+  padding: 20px;
+  width: 20%;
+  height: 100%;
+  background-color: red;
+}
+
+@media screen and (max-width: 800px) {
+  .wrapper-users {
+    width: 100%;
+  }
+}

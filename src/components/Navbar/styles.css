@@ -7,6 +7,7 @@
   justify-content: flex-start;
   padding: 0 30px;
   box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  margin-bottom: 30px;
 }
 
 .navbar h1,
@@ -97,10 +98,10 @@
     width: 100%;
     height: max-content;
     background-color: var(--bg-primary);
-    /* padding: 2rem 1.5rem 0rem; */
     border-radius: 1.5rem 1.5rem 0 0;
     transition: 0.5s;
-    z-index: var(--z-fixed);
+    z-index: 10;
+    margin: 0;
   }
 
   .navbar-bottom {
@@ -112,11 +113,11 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: var(--z-fixed);
-    background-color: var(--body-color);
+    z-index: 10;
+    background-color: var(--bg-primary);
     transition: 0.5s;
     box-shadow: 1px -2px 7px 0px rgb(57 63 72 / 30%);
-    /* padding: 15px; */
+    /* margin-top: 20px; */
   }
 
   .navbar > h1 {
@@ -129,6 +130,7 @@
     height: 100%;
     width: 100%;
     position: relative;
+    padding: 0;
   }
 
   .wrapper-menu > li {
@@ -142,7 +144,7 @@
   .close-menu {
     position: absolute;
     top: -10px;
-    right: 10px;
+    right: -10px;
   }
 
   .iconMenu {

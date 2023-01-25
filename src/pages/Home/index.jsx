@@ -1,9 +1,12 @@
 import Products from '../../components/Products';
+import Users from '../../components/Users';
+import './styles.css';
 
 export default function Home() {
   return (
-    <div>
+    <section className="section-home">
       <Products />
-    </div>
+      <Users />
+    </section>
   );
 }

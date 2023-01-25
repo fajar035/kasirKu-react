@@ -29,9 +29,9 @@ function NavWeb() {
   });
 
   return (
-    <div>
+    <header>
       {isOpenMenu || windowsSize > 550 ? (
-        <div className="navbar">
+        <section className="navbar">
           <h1>KasirKu</h1>
           <ul className="wrapper-menu">
             {windowsSize <= 550 ? (
@@ -100,14 +100,14 @@ function NavWeb() {
               <UilTimes />
             </li>
           </ul>
-        </div>
+        </section>
       ) : (
-        <div className="navbar-bottom">
+        <section className="navbar-bottom">
           <p>KasirKu</p>
           <UilApps className="iconMenu" onClick={handleOpenMenu} />
-        </div>
+        </section>
       )}
-    </div>
+    </header>
   );
 }
 
