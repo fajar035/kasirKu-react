@@ -3,15 +3,18 @@ import Home from './pages/Home';
 import Users from './pages/Users';
 import Transactions from './pages/transactions';
 import Page404 from './pages/NotFound';
+import Layout from './components/Layout';
 
 function MainRouter() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/users" element={<Users />} />
-      <Route path="/Transactions" element={<Transactions />} />
-      <Route path="*" element={<Page404 />} />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/Transactions" element={<Transactions />} />
+        <Route path="*" element={<Page404 />} />
+      </Routes>
+    </Layout>
   );
 }
 
