@@ -103,7 +103,7 @@ function NavWeb() {
         </div>
       ) : (
         <div className="navbar-bottom">
-          <p>kasirKu</p>
+          <p>KasirKu</p>
           <UilApps className="iconMenu" onClick={handleOpenMenu} />
         </div>
       )}
