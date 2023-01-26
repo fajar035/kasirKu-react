@@ -3,14 +3,12 @@
   height: auto;
   position: relative;
   display: flex;
-  /* flex-wrap: wrap; */
   margin-bottom: 30px;
 }
 
 .wrapper-left {
   width: 30%;
   height: 100%;
-  /* background-color: red; */
 }
 
 .wrapper-chart {
@@ -32,6 +30,17 @@
   height: 300px;
   overflow-y: scroll;
   margin-bottom: 10px;
+}
+
+.no-data {
+  width: 100%;
+  height: 310px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Nunito';
+  font-weight: 700;
+  color: var(--text-color);
 }
 
 .product-cart::-webkit-scrollbar-track {
@@ -80,4 +89,17 @@
   color: var(--bg-secondary);
   font-family: 'Nunito';
   font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .section-home {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrapper-left {
+    width: 90%;
+    margin-bottom: 70px;
+  }
 }

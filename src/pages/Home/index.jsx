@@ -58,9 +58,9 @@ function Home() {
         .then((res) => {
           if (res.data.status === 201) {
             setSelectProduct([]);
-            return toast.success('Berhasil Checkout ...', {
+            return toast.success('Checkout Successfully ...', {
               position: 'top-center',
-              autoClose: 3000,
+              autoClose: 2000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: false,
@@ -72,9 +72,9 @@ function Home() {
         })
         .catch((err) => {
           if (err)
-            return toast.error('Terjadi Kesalahan !', {
+            return toast.error('Something went wrong !', {
               position: 'top-center',
-              autoClose: 3000,
+              autoClose: 2000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: false,
@@ -84,9 +84,9 @@ function Home() {
             });
         });
     } else {
-      return toast.warning('Checkout dulu mas eh !', {
+      return toast.warning('Please check out first !', {
         position: 'top-center',
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
@@ -121,14 +121,20 @@ function Home() {
           handleSelectedUser={handleSelectedUser}
         />
         <div className="wrapper-chart">
-          <p>Checkout</p>
-          <div className="product-cart">
-            {selectProduct.map((item, idx) => {
-              return (
-                <Checkout key={idx} product={item} removeCart={removeCart} />
-              );
-            })}
-          </div>
+          <p>List Item</p>
+          {selectProduct.length !== 0 ? (
+            <div className="product-cart">
+              {selectProduct.map((item, idx) => {
+                return (
+                  <Checkout key={idx} product={item} removeCart={removeCart} />
+                );
+              })}
+            </div>
+          ) : (
+            <div className="no-data">
+              <p>No Data</p>
+            </div>
+          )}
           <div className="wrapper-submit">
             <p>Total : Rp.{total}</p>
             <button type="button" onClick={handleSubmitcheckout}>
@@ -139,7 +145,7 @@ function Home() {
       </div>
       <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

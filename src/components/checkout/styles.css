@@ -9,8 +9,13 @@
   margin-bottom: 10px;
 }
 
-.card-product > img {
-  margin-right: 40px;
+.img-title > img {
+  margin-right: 30px;
+}
+
+.img-title {
+  display: flex;
+  width: 90%;
 }
 
 .title-product {
@@ -18,8 +23,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-right: 120px;
-  width: 30%;
+  /* margin-right: 120px; */
 }
 
 .title-product > p {
@@ -36,4 +40,10 @@
 .card-product:hover {
   color: var(--color-secondary);
   border: 2px solid var(--color-secondary);
+}
+
+@media screen and (max-width: 1300px) {
+  .title-product {
+    margin-right: 100px;
+  }
 }

@@ -2,7 +2,6 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useState, useEffect, Fragment } from 'react';
 import {
   UilApps,
-  UilUser,
   UilEstate,
   UilInvoice,
   UilTimes,
@@ -48,16 +47,6 @@ function NavWeb() {
                 </li>
                 <li>
                   <NavLink
-                    to="users"
-                    className={`link navlink-bottom ${
-                      pathname === '/users' ? 'active' : null
-                    }`}>
-                    <UilUser />
-                    Users
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
                     to="transactions"
                     className={`link navlink-bottom ${
                       pathname === '/transactions' ? 'active' : null
@@ -74,15 +63,6 @@ function NavWeb() {
                     to="/"
                     className={`link ${pathname === '/' ? 'active' : null}`}>
                     Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="users"
-                    className={`link ${
-                      pathname === '/users' ? 'active' : null
-                    }`}>
-                    Users
                   </NavLink>
                 </li>
                 <li>

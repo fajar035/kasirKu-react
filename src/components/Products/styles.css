@@ -14,8 +14,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 200px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -42,6 +42,10 @@
   align-items: center;
   font-family: 'Nunito';
   color: var(--text-color);
+}
+
+.wrapper-text-card p {
+  margin: 10px 0;
 }
 
 .wrapper-text-card p:nth-child(1) {
