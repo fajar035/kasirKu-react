@@ -77,7 +77,7 @@ export default function StickyHeadTable() {
     <div className="section-transaction">
       <h1>Transaction</h1>
       <Paper className="section-paper">
-        <TableContainer sx={{ maxHeight: 350 }}>
+        <TableContainer sx={{ maxHeight: 400 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead className="header-table">
               <TableRow>
