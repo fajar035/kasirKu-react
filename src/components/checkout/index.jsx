@@ -1,4 +1,4 @@
-import { UilTimesSquare } from '@iconscout/react-unicons';
+import { UilTrashAlt } from '@iconscout/react-unicons';
 import './styles.css';
 
 function Checkout({ product, removeCart }) {
@@ -9,7 +9,7 @@ function Checkout({ product, removeCart }) {
         <p>{product.name}</p>
         <p>Rp.{product.price}</p>
       </div>
-      <UilTimesSquare
+      <UilTrashAlt
         className="icon-cart"
         onClick={() => removeCart(product.id)}
       />

@@ -26,49 +26,6 @@ function Home() {
       });
   }, [getAllUsersApi]);
 
-  const handleSubmitcheckout = useCallback(() => {
-    const d = new Date();
-    const date2 = d.toISOString().split('T')[0];
-    const time = d.toTimeString().split(' ')[0];
-    const dateNow = `${date2} ${time}`;
-
-    const body = {
-      id_user: selectUser,
-      date: dateNow,
-      total,
-    };
-
-    addTransactionApi(body)
-      .then((res) => {
-        if (res.data.status === 201) {
-          setSelectProduct([]);
-          return toast.success('Berhasil Checkout ...', {
-            position: 'top-center',
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            progress: undefined,
-            theme: 'colored',
-          });
-        }
-      })
-      .catch((err) => {
-        if (err)
-          return toast.error('Terjadi Kesalahan !', {
-            position: 'top-center',
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            progress: undefined,
-            theme: 'colored',
-          });
-      });
-  }, [addTransactionApi]);
-
   const handleSelectedUser = (id) => {
     setSelectUser(id);
   };
@@ -82,6 +39,62 @@ function Home() {
       selectProduct.length !== 0 &&
       selectProduct.filter((itemRemove) => itemRemove.id !== id);
     setSelectProduct(newCart);
+  };
+
+  const handleSubmitcheckout = () => {
+    const d = new Date();
+    const date2 = d.toISOString().split('T')[0];
+    const time = d.toTimeString().split(' ')[0];
+    const dateNow = `${date2} ${time}`;
+
+    const body = {
+      id_user: selectUser,
+      date: dateNow,
+      total,
+    };
+
+    if (selectProduct.length !== 0) {
+      addTransactionApi(body)
+        .then((res) => {
+          if (res.data.status === 201) {
+            setSelectProduct([]);
+            return toast.success('Berhasil Checkout ...', {
+              position: 'top-center',
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              progress: undefined,
+              theme: 'colored',
+            });
+          }
+        })
+        .catch((err) => {
+          if (err)
+            return toast.error('Terjadi Kesalahan !', {
+              position: 'top-center',
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              progress: undefined,
+              theme: 'colored',
+            });
+        });
+    } else {
+      return toast.warning('Checkout dulu mas eh !', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: 'colored',
+      });
+    }
   };
 
   useEffect(() => {
