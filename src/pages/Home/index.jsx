@@ -114,7 +114,7 @@ function Home() {
         products={dataProducts}
         handleSelectedProduct={handleSelectedProduct}
       />
-      <div className="wrapper-left">
+      <div className="wrapper-left" id="user">
         <Users
           users={users}
           isError={error}
