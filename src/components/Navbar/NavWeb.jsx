@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import {
   UilApps,
   UilEstate,
@@ -29,11 +29,11 @@ function NavWeb() {
 
   return (
     <header>
-      {isOpenMenu || windowsSize > 550 ? (
+      {isOpenMenu || windowsSize >= 768 ? (
         <section className="navbar">
           <h1>KasirKu</h1>
           <ul className="wrapper-menu">
-            {windowsSize <= 550 ? (
+            {windowsSize <= 750 ? (
               <>
                 <li>
                   <NavLink
