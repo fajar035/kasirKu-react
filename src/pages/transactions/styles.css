@@ -1,0 +1,32 @@
+.section-transaction {
+  height: auto;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 100px; */
+}
+
+.section-transaction > h1 {
+  text-align: center;
+  font-family: 'Nunito';
+  color: var(--text-color);
+}
+
+.section-paper {
+  width: 60%;
+  overflow: hidden;
+  font-family: 'Nunito';
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .section-paper {
+    width: 100%;
+  }
+
+  .section-transaction {
+    margin-bottom: 100px;
+  }
+}

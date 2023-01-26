@@ -9,7 +9,7 @@ function Users({ users, isError, handleSelectedUser }) {
 
   useEffect(() => {
     if (isError)
-      return toast.error('Terjadi Kesalahan !', {
+      return toast.error('Something went wrong !', {
         position: 'top-center',
         autoClose: 3000,
         hideProgressBar: false,
