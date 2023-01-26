@@ -1,8 +1,36 @@
+.section-users {
+  /* padding: 20px; */
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .wrapper-users {
+  width: 80%;
+  background-color: var(--bg-primary);
+  padding: 10px 10px;
+}
+
+.select-users > p {
+  font-family: 'Nunito';
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dropdown-users {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.option-dropdown {
+  width: 100%;
+  height: 40px;
   padding: 20px;
-  width: 20%;
-  height: 100%;
-  background-color: red;
 }
 
 @media screen and (max-width: 800px) {

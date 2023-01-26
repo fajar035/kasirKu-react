@@ -1,17 +1,27 @@
-import dataProducts from '../../utils/Data';
-import CardProduct from '../Cards/CardProduct';
 import './styles.css';
 
-function Products() {
+function Products({ products, handleSelectedProduct }) {
+  const handleSelect = (product) => {
+    handleSelectedProduct(product);
+  };
   return (
     <div className="wrapper-products">
-      {dataProducts.map((product, idx) => (
-        <CardProduct
-          key={idx}
-          img={product.picture}
-          name={product.name}
-          price={product.price}
-        />
+      {products.map((product, idx) => (
+        <div key={idx} className="wrapper-card-product">
+          <div className="wrapper-img-product">
+            <img src={product.picture} alt="img" className="img-product" />
+          </div>
+          <div className="wrapper-text-card">
+            <p>{product.name}</p>
+            <p>Rp.{product.price}</p>
+          </div>
+          <button
+            type="button"
+            className="btn-buy"
+            onClick={() => handleSelect(product)}>
+            Checkout
+          </button>
+        </div>
       ))}
     </div>
   );

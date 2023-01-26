@@ -1,0 +1,39 @@
+.card-product {
+  width: 92%;
+  height: 50px;
+  display: flex;
+  border-radius: 5px;
+  padding: 10px;
+  align-items: center;
+  border: 1px solid var(--text-color);
+  margin-bottom: 10px;
+}
+
+.card-product > img {
+  margin-right: 40px;
+}
+
+.title-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-right: 120px;
+  width: 30%;
+}
+
+.title-product > p {
+  margin: 0;
+  font-family: 'Nunito';
+  color: var(--text-color);
+}
+
+.icon-cart {
+  cursor: pointer;
+}
+
+.icon-cart:hover,
+.card-product:hover {
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
+}

@@ -3,6 +3,43 @@
   height: auto;
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   margin-bottom: 30px;
+}
+
+.wrapper-left {
+  width: 30%;
+  height: 100%;
+  /* background-color: red; */
+}
+
+.wrapper-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Nunito';
+  font-size: 20px;
+  font-weight: 700;
+  flex-direction: column;
+}
+
+.product-cart {
+  width: 100%;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.product-cart::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: var(--bg-primary);
+}
+
+.product-cart::-webkit-scrollbar {
+  width: 5px;
+}
+
+.product-cart::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-secondary);
 }
