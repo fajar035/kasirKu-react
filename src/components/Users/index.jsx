@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/style-prop-object */
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import './styles.css';
 import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,7 +11,7 @@ function Users({ users, isError, handleSelectedUser }) {
     if (isError)
       return toast.error('Terjadi Kesalahan !', {
         position: 'top-center',
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,

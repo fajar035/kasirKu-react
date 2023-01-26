@@ -7,5 +7,5 @@ export const getAllTransactionsApi = () => {
 
 export const addTransactionApi = (body) => {
   const url = `${process.env.REACT_APP_HOST}/api/transactions`;
-  return axios.patch(url, body);
+  return axios.post(url, body);
 };

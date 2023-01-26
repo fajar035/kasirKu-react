@@ -23,10 +23,15 @@
   flex-direction: column;
 }
 
+.wrapper-chart > p {
+  margin-bottom: 10px;
+}
+
 .product-cart {
   width: 100%;
   height: 300px;
   overflow-y: scroll;
+  margin-bottom: 10px;
 }
 
 .product-cart::-webkit-scrollbar-track {
@@ -42,4 +47,37 @@
   border-radius: 10px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: var(--color-secondary);
+}
+
+.wrapper-submit {
+  width: 90%;
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper-submit > p {
+  margin: 0;
+  font-family: 'Nunito';
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.wrapper-submit > button {
+  border-radius: 5px;
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--text-color);
+  font-family: 'Nunito';
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 20px;
+}
+
+.wrapper-submit > button:hover {
+  background-color: var(--color-secondary);
+  color: var(--bg-secondary);
+  font-family: 'Nunito';
+  font-weight: bold;
 }

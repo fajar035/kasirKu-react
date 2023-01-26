@@ -1,20 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import Checkout from '../../components/checkout';
 import Products from '../../components/Products';
 import Users from '../../components/Users';
 import dataProducts from '../../utils/Data';
 import { getAllUsersApi } from '../../utils/https/users';
+import { addTransactionApi } from '../../utils/https/transactions';
 import './styles.css';
 
 function Home() {
-  // add transaction = id, total(product+), date
-  // add transaction to api
   const [users, setusers] = useState([]);
   const [error, setError] = useState(false);
-  const [selectUser, setSelectUser] = useState(null);
+  const [selectUser, setSelectUser] = useState(1);
   const [selectProduct, setSelectProduct] = useState([]);
+  const [total, setTotal] = useState(0);
 
-  const getAllUsers = () => {
+  const getAllUsers = useCallback(() => {
     getAllUsersApi()
       .then((res) => {
         setusers(res.data.data);
@@ -23,7 +24,50 @@ function Home() {
       .catch(() => {
         setError(true);
       });
-  };
+  }, [getAllUsersApi]);
+
+  const handleSubmitcheckout = useCallback(() => {
+    const d = new Date();
+    const date2 = d.toISOString().split('T')[0];
+    const time = d.toTimeString().split(' ')[0];
+    const dateNow = `${date2} ${time}`;
+
+    const body = {
+      id_user: selectUser,
+      date: dateNow,
+      total,
+    };
+
+    addTransactionApi(body)
+      .then((res) => {
+        if (res.data.status === 201) {
+          setSelectProduct([]);
+          return toast.success('Berhasil Checkout ...', {
+            position: 'top-center',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: 'colored',
+          });
+        }
+      })
+      .catch((err) => {
+        if (err)
+          return toast.error('Terjadi Kesalahan !', {
+            position: 'top-center',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: 'colored',
+          });
+      });
+  }, [addTransactionApi]);
 
   const handleSelectedUser = (id) => {
     setSelectUser(id);
@@ -41,13 +85,18 @@ function Home() {
   };
 
   useEffect(() => {
+    const totalPrice = selectProduct
+      .map((item) => item.price)
+      .reduce((a, b) => a + b, 0);
+    setTotal(totalPrice);
+  }, [selectProduct, total]);
+
+  useEffect(() => {
     getAllUsers();
   }, [getAllUsers]);
 
   return (
     <section className="section-home">
-      <p>{selectUser}</p>
-
       <Products
         products={dataProducts}
         handleSelectedProduct={handleSelectedProduct}
@@ -67,8 +116,26 @@ function Home() {
               );
             })}
           </div>
+          <div className="wrapper-submit">
+            <p>Total : Rp.{total}</p>
+            <button type="button" onClick={handleSubmitcheckout}>
+              Checkout
+            </button>
+          </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover={false}
+        theme="colored"
+      />
     </section>
   );
 }

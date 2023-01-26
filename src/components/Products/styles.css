@@ -53,16 +53,16 @@
   height: 10%;
   border-radius: 5px;
   border: none;
-  background-color: var(--color-secondary);
-  color: var(--bg-primary);
+  background-color: var(--color-primary);
+  color: var(--text-color);
   font-family: 'Nunito';
   font-weight: 600;
   cursor: pointer;
 }
 
 .btn-buy:hover {
-  background-color: var(--color-primary);
-  color: var(--text-color);
+  background-color: var(--color-secondary);
+  color: var(--bg-secondary);
   font-family: 'Nunito';
   font-weight: bold;
 }
