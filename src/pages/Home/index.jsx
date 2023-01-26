@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import moment from 'moment';
 import Checkout from '../../components/checkout';
 import Products from '../../components/Products';
 import Users from '../../components/Users';
@@ -42,10 +43,7 @@ function Home() {
   };
 
   const handleSubmitcheckout = () => {
-    const d = new Date();
-    const date2 = d.toISOString().split('T')[0];
-    const time = d.toTimeString().split(' ')[0];
-    const dateNow = `${date2} ${time}`;
+    const dateNow = moment().format('YYYY-MM-DD h:mm:ss');
 
     const body = {
       id_user: selectUser,

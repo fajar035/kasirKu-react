@@ -47,13 +47,13 @@ export default function StickyHeadTable() {
       .then((res) => {
         let coba = [...res.data.data];
         coba.forEach((item, idx) => {
-          const newDate = moment(item.date).format('YYYY-MM-DD hh:mm:ss');
+          const newDate = moment(item.date).format('dddd, DD-MM-YYYY, h:mm:ss');
           const newTotal = `Rp.${item.total}`;
           coba[idx].total = newTotal;
           coba[idx].date = newDate;
         });
 
-        setTransaction(coba);
+        setTransaction(coba.reverse());
       })
       .catch(() => {
         return toast.error('Something went wrong !', {
