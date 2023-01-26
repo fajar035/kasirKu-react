@@ -59,7 +59,7 @@ function Home() {
           if (res.data.status === 201) {
             setSelectProduct([]);
             return toast.success('Checkout Successfully ...', {
-              position: 'top-center',
+              position: 'bottom-center',
               autoClose: 2000,
               hideProgressBar: false,
               closeOnClick: true,
@@ -73,7 +73,7 @@ function Home() {
         .catch((err) => {
           if (err)
             return toast.error('Something went wrong !', {
-              position: 'top-center',
+              position: 'bottom-center',
               autoClose: 2000,
               hideProgressBar: false,
               closeOnClick: true,
@@ -85,7 +85,7 @@ function Home() {
         });
     } else {
       return toast.warning('Please check out first !', {
-        position: 'top-center',
+        position: 'bottom-center',
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -144,7 +144,7 @@ function Home() {
         </div>
       </div>
       <ToastContainer
-        position="top-center"
+        position="bottom-center"
         autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
