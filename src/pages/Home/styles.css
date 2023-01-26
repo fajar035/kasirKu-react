@@ -102,10 +102,10 @@
 
   .wrapper-left {
     display: flex;
-    position: absolute;
+    position: fixed;
+    top: 0;
     width: 0;
     height: 100%;
-    margin-bottom: 70px;
     z-index: 10;
     background-color: white;
     flex-direction: column;
@@ -113,7 +113,7 @@
     align-items: center;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 200px;
+    padding-top: 35px;
   }
 
   .wrapper-chart {

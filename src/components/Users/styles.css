@@ -1,5 +1,4 @@
 .section-users {
-  /* padding: 20px; */
   width: 100%;
   height: 50%;
   display: flex;
@@ -37,5 +36,11 @@
 @media screen and (max-width: 800px) {
   .wrapper-users {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-users {
+    height: auto;
   }
 }
