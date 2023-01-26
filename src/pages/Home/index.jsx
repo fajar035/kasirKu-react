@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import Checkout from '../../components/checkout';
 import Products from '../../components/Products';
@@ -15,6 +16,7 @@ function Home() {
   const [selectUser, setSelectUser] = useState(1);
   const [selectProduct, setSelectProduct] = useState([]);
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
 
   const getAllUsers = useCallback(() => {
     getAllUsersApi()
@@ -56,7 +58,7 @@ function Home() {
         .then((res) => {
           if (res.data.status === 201) {
             setSelectProduct([]);
-            return toast.success('Checkout Successfully ...', {
+            toast.success('Checkout Successfully ...', {
               position: 'bottom-center',
               autoClose: 2000,
               hideProgressBar: false,
@@ -67,6 +69,9 @@ function Home() {
               theme: 'colored',
             });
           }
+          setTimeout(() => {
+            navigate('/transactions');
+          }, 3500);
         })
         .catch((err) => {
           if (err)
