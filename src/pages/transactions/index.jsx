@@ -53,7 +53,7 @@ export default function StickyHeadTable() {
           coba[idx].date = newDate;
         });
 
-        setTransaction(coba.reverse());
+        setTransaction(coba);
       })
       .catch(() => {
         return toast.error('Something went wrong !', {

@@ -13,7 +13,7 @@ import './styles.css';
 function Home() {
   const [users, setusers] = useState([]);
   const [error, setError] = useState(false);
-  const [selectUser, setSelectUser] = useState(1);
+  const [selectUser, setSelectUser] = useState(0);
   const [selectProduct, setSelectProduct] = useState([]);
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
@@ -52,6 +52,18 @@ function Home() {
       date: dateNow,
       total,
     };
+
+    if (selectUser === 0)
+      return toast.warning('Please choose a user first ...', {
+        position: 'bottom-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: 'colored',
+      });
 
     if (selectProduct.length !== 0) {
       addTransactionApi(body)
