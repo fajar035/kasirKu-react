@@ -31,6 +31,9 @@ function Users({ users, isError, handleSelectedUser }) {
           <select
             className="dropdown-users"
             onChange={(e) => handleChangeUser(e)}>
+            <option className="option-dropdown" disabled selected>
+              Select Users
+            </option>
             {users?.map((user, idx) => {
               return (
                 <option className="option-dropdown" key={idx} value={user.id}>
